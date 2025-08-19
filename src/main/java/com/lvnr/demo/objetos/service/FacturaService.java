@@ -8,18 +8,27 @@ import com.lvnr.demo.objetos.dto.PersonaDto;
 import com.lvnr.demo.objetos.dto.ProductoDto;
 
 public class FacturaService {
-	
+
 	private List<FacturaDto> facturas;
-	
+
 	public FacturaService() {
-		facturas=new ArrayList<>();
+		facturas = new ArrayList<>();
 	}
-	
+
 	public void crearFactura(PersonaDto personas, List<ProductoDto> productos) {
-		FacturaDto facturas1=new FacturaDto();
-		facturas1.setPersona(personas);
-		facturas1.setProductos(productos);
-		this.facturas.add(facturas1);
+		FacturaDto factura = new FacturaDto();
+		factura.setPersona(personas);
+		factura.setProductos(productos);
+		this.facturas.add(factura);
+	}
+
+	public void imprimirFactura() {
+		for (int i = 0; i < facturas.size(); i++) {
+			FacturaDto factura = facturas.get(i);
+			System.out.println("Persona: " + factura.getPersona());
+			System.out.println("Productos: " + factura.getProductos());
+
+		}
 	}
 
 }

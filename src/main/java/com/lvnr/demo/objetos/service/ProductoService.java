@@ -14,11 +14,11 @@ public class ProductoService {
 	}
 
 	public void crearProducto(String nombreProducto, int cantidad, int valor) {
-		ProductoDto productos = new ProductoDto();
-		productos.setNombreProducto(nombreProducto);
-		productos.setCantidad(cantidad);
-		productos.setValor(valor);
-		this.productos.add(productos);
+		ProductoDto producto = new ProductoDto();
+		producto.setNombreProducto(nombreProducto);
+		producto.setCantidad(cantidad);
+		producto.setValor(valor);
+		this.productos.add(producto);
 	}
 
 	public List<ProductoDto> consultarProductos() {
@@ -26,13 +26,13 @@ public class ProductoService {
 	}
 
 	public ProductoDto consultarProducto(String nombreProducto) {
-		for (int i=0; i<productos.size(); i++) {
-			ProductoDto productos1=productos.get(i);
-			if (productos1.getNombreProducto().equals(nombreProducto)) {
-			return productos1;
+		for (int i = 0; i < productos.size(); i++) {
+			ProductoDto producto = productos.get(i);
+			if (producto.getNombreProducto().equals(nombreProducto)) {
+				return producto;
+			}
 		}
-}
-	return null;
+		return null;
 
-}
+	}
 }

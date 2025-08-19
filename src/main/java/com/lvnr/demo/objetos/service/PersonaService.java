@@ -29,9 +29,9 @@ public class PersonaService {
 
 	public PersonaDto ConsultarPersona(String numeroIdentidicacion) {
 		for (int i = 0; i < personas.size(); i++) {
-			PersonaDto personadto1 = personas.get(i);
-			if(personadto1.getNumeroIdentificacion().equals(numeroIdentidicacion)) {
-				return personadto1;
+			PersonaDto personadto = personas.get(i);
+			if(personadto.getNumeroIdentificacion().equals(numeroIdentidicacion)) {
+				return personadto;
 			}
 		}
 		return null; 
