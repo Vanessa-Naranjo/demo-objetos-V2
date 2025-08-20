@@ -25,10 +25,41 @@ public class FacturaService {
 	public void imprimirFactura() {
 		for (int i = 0; i < facturas.size(); i++) {
 			FacturaDto factura = facturas.get(i);
-			System.out.println("Persona: " + factura.getPersona());
-			System.out.println("Productos: " + factura.getProductos());
+
+			PersonaDto persona = factura.getPersona();
+			System.out.println("Nombre: " + persona.getNombreCompleto());
+			System.out.println("Tipo Identificación: " + persona.getTipoIdentificacion());
+			System.out.println("Numero identificación: " + persona.getNumeroIdentificacion());
+
+			System.out.println("***LISTA DE PRODUCTOS***");
+			List<ProductoDto> productos = factura.getProductos();
+
+			for (int j = 0; j < productos.size(); j++) {
+				ProductoDto producto = productos.get(j);
+				System.out.println("Nombre de Producto: " + producto.getNombreProducto());
+				System.out.println("Cantidad: " + producto.getCantidad());
+				System.out.println("Valor: " + producto.getValor());
+			}
 
 		}
 	}
 
+	public void imprimirFacturaV2() {
+		for (FacturaDto facturaDto : facturas) {
+			PersonaDto persona = facturaDto.getPersona();
+			System.out.println("Nombre: " + persona.getNombreCompleto());
+			System.out.println("Tipo Identificación: " + persona.getTipoIdentificacion());
+			System.out.println("Numero identificación: " + persona.getNumeroIdentificacion());
+
+			System.out.println("***LISTA DE PRODUCTOS***");
+			List<ProductoDto> productos = facturaDto.getProductos();
+
+			for (ProductoDto producto : productos) {
+				System.out.println("Nombre de Producto: " + producto.getNombreProducto());
+				System.out.println("Cantidad: " + producto.getCantidad());
+				System.out.println("Valor: " + producto.getValor());
+
+			}
+		}
+	}
 }
