@@ -27,7 +27,16 @@ public class FacturaController {
 		List<ProductoDto> productos = productoService.consultarProductos();
 		facturaService.crearFactura(personaDto, productos);
 
-		facturaService.imprimirFactura();
+		productoService = new ProductoService();
+		productoService.crearProducto("Pan", 20, 1500);
+		productoService.crearProducto("Frutas", 30, 1700);
+		productoService.crearProducto("Aceite", 2, 1400);
+
+		personaDto = personaService.ConsultarPersona("645645554");
+		productos = productoService.consultarProductos();
+		facturaService.crearFactura(personaDto, productos);
+
+		facturaService.imprimirFacturaV2();
 
 	}
 
